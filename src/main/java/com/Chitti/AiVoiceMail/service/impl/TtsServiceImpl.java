@@ -1,19 +1,43 @@
 package com.Chitti.AiVoiceMail.service.impl;
 
 import com.Chitti.AiVoiceMail.service.TtsService;
+import com.Chitti.AiVoiceMail.utilities.Utilities;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 @Slf4j
 public class TtsServiceImpl implements TtsService {
 
-    public String convertTextToSpeechViaApi(String text, String fileName,String requestId) throws Exception {
+    @Value("${speech.key}")
+    private String apiKey;
+
+    @Value("${speech.region}")
+    private String region;
+
+    @Value("${local.file.path}")
+    private String localFilePath;
+
+    @Value("${voice.name}")
+    private String voiceName;
+
+    @Value("${azure.endpoint}")
+    private String azureEndpoint;
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+
+    public String convertTextToSpeechViaApi(String text, String fileName) throws Exception {
         String outputFilePath = Utilities.getOutputFilePath(localFilePath,fileName);
-        log.info("Output file path: {}", outputFilePath);
+//        log.info("Output file path: {}", outputFilePath);
 
         Utilities.ensureDirectoryExists(localFilePath);
 
@@ -31,7 +55,7 @@ public class TtsServiceImpl implements TtsService {
         byte[] response = restTemplate.exchange(azureEndpoint, HttpMethod.POST, requestEntity, byte[].class).getBody();
 
         Utilities.writeResponseToFile(response, outputFilePath);
-        log.info("Audio content written to file: {}", outputFilePath);
+//        log.info("Audio content written to file: {}", outputFilePath);
 
         return outputFilePath;
     }

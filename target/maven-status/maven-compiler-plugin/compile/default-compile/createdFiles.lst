@@ -1,0 +1,9 @@
+com\Chitti\AiVoiceMail\utilities\Utilities.class
+com\Chitti\AiVoiceMail\ChittiVoiceMailApplication.class
+com\Chitti\AiVoiceMail\entities\Summary.class
+com\Chitti\AiVoiceMail\service\impl\TtsServiceImpl.class
+com\Chitti\AiVoiceMail\entities\UserDetails.class
+com\Chitti\AiVoiceMail\service\TtsService.class
+com\Chitti\AiVoiceMail\entities\ApplicationConfigs.class
+com\Chitti\AiVoiceMail\entities\Summary$Status.class
+com\Chitti\AiVoiceMail\controller\TtsController.class
