@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'com..Chitti -voiceMail' is invalid and this project uses 'com.Chitti._voiceMail' instead.
+* The original package name 'com..Chitti -voiceMail' is invalid and this project uses 'com.Chitti.AiVoiceMail' instead.
 
 # Getting Started
 
