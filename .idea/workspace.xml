@@ -4,22 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63665b0e-35da-4b84-a7e8-f997507e7ace" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/AudioMetadata.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/ChatHistories.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/UserCustomizations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/stt/SpeechToTextService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/stt/SpeechToTextServiceFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/stt/impl/AzureSpeechToTextService.java" afterDir="false" />
+    <list default="true" id="63665b0e-35da-4b84-a7e8-f997507e7ace" name="Changes" comment="added models and SpeechToTextService">
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/controller/CallReceiverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/controller/CallReceiverController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata$ProcessingLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata$ProcessingLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/service/stt/SpeechToTextService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/service/stt/SpeechToTextService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,8 +105,17 @@
       <option name="presentableId" value="Default" />
       <updated>1734108591717</updated>
       <workItem from="1734108594193" duration="4352000" />
-      <workItem from="1734112980735" duration="1364000" />
+      <workItem from="1734112980735" duration="2436000" />
     </task>
+    <task id="LOCAL-00001" summary="added models and SpeechToTextService">
+      <option name="closed" value="true" />
+      <created>1734114379882</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1734114379882</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +131,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added models and SpeechToTextServicet" />
+    <MESSAGE value="added models and SpeechToTextService" />
+    <option name="LAST_COMMIT_MESSAGE" value="added models and SpeechToTextService" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
