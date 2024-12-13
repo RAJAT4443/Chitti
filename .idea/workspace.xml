@@ -5,18 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63665b0e-35da-4b84-a7e8-f997507e7ace" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/exception/InvalidSpeechToTextServiceType.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/AudioMetadata.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/ChatHistories.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/UserCustomizations.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/stt/SpeechToTextService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/stt/SpeechToTextServiceFactory.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/stt/impl/AzureSpeechToTextService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/impl/TtsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/impl/TtsServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/controller/CallReceiverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/controller/CallReceiverController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata$ProcessingLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata$ProcessingLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/service/stt/SpeechToTextService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/service/stt/SpeechToTextService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,12 +32,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,34 +51,40 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2qAbz23ZwA7AZYYnoJJb6nlsvog" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/code-base",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "editor.preferences.import",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/code-base&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.Chitti.AiVoiceMail.exception" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Chitti---Ai-VoiceMail-Assistant" />
@@ -105,20 +116,32 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1734108591717</updated>
-      <workItem from="1734108594193" duration="4018000" />
+      <workItem from="1734108594193" duration="4352000" />
+      <workItem from="1734112980735" duration="1364000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$USER_HOME$/AppData/Local/Temp/tmp_1_ChittiVoiceMailApplication.class</url>
+          <line>10</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
