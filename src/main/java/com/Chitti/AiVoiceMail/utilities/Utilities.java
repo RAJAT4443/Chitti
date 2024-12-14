@@ -7,8 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.lang.reflect.Field;
 
 @Slf4j
 public class Utilities {
@@ -56,4 +59,32 @@ public class Utilities {
 
 
     }
+
+
+    public static Map<String, String> extractFields(Object object) {
+        Map<String, String> fieldMap = new HashMap<>();
+        try {
+            Class<?> clazz = object.getClass();
+            for (Field field : clazz.getDeclaredFields()) {
+                field.setAccessible(true);
+                Object value = field.get(object);
+                if (value != null) {
+                    fieldMap.put(field.getName(), value.toString());
+                }
+            }
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException("Error accessing fields of object", e);
+        }
+        return fieldMap;
+    }
+
+    public static String replacePlaceholders(String template, Map<String, String> placeholderValues) {
+        String processedTemplate = template;
+        for (Map.Entry<String, String> entry : placeholderValues.entrySet()) {
+            String placeholder = "{{" + entry.getKey() + "}}";
+            processedTemplate = processedTemplate.replace(placeholder, entry.getValue());
+        }
+        return processedTemplate;
+    }
+
 }

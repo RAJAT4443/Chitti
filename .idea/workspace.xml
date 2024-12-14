@@ -4,34 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63665b0e-35da-4b84-a7e8-f997507e7ace" name="Changes" comment="package re-organization">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/voiceMailAssistant/AssistantResponseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/voiceMailAssistant/impl/OpenAiAssistantResponseService.java" afterDir="false" />
+    <list default="true" id="63665b0e-35da-4b84-a7e8-f997507e7ace" name="Changes" comment="fixed sessionId and LocalDateTime isssue">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/OpenAiMessageDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/OpenAiRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/OpenAiResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/InputAudioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/InputAudioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/AzureSpeechToTextResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/AzureSpeechToTextResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/AudioMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/AudioMetadata.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/ChatHistories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/ChatHistories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/UserCustomizations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/UserCustomizations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/repos/mongo/ChatHistoriesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/repos/mongo/ChatHistoriesRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/ChatHistoriesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/ChatHistoriesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/controller/CallReceiverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/controller/CallReceiverController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/entities/UserDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/entities/UserDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/voiceMailAssistant/impl/OpenAiAssistantResponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/voiceMailAssistant/impl/OpenAiAssistantResponseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/utilities/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/utilities/Utilities.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Message.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Metadata.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Metadata.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/UserCustomizations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/UserCustomizations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.Chitti.AiVoiceMail.ChittiVoiceMailApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.Chitti.AiVoiceMail.ChittiVoiceMailApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.Chitti.AiVoiceMail.ChittiVoiceMailApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.Chitti.AiVoiceMail.ChittiVoiceMailApplicationTests.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="spring-beans.schema" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -150,7 +134,7 @@
       <updated>1734108591717</updated>
       <workItem from="1734108594193" duration="4352000" />
       <workItem from="1734112980735" duration="23726000" />
-      <workItem from="1734176681035" duration="8871000" />
+      <workItem from="1734176681035" duration="12191000" />
     </task>
     <task id="LOCAL-00001" summary="added models and SpeechToTextService">
       <option name="closed" value="true" />
@@ -216,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734176917222</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fixed sessionId and LocalDateTime isssue">
+      <option name="closed" value="true" />
+      <created>1734194480019</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734194480020</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +234,8 @@
     <MESSAGE value="added gitignore" />
     <MESSAGE value="added azure speech to text service implementation" />
     <MESSAGE value="package re-organization" />
-    <option name="LAST_COMMIT_MESSAGE" value="package re-organization" />
+    <MESSAGE value="fixed sessionId and LocalDateTime isssue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed sessionId and LocalDateTime isssue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

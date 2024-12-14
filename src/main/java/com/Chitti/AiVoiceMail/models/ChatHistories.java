@@ -32,12 +32,22 @@ public class ChatHistories implements Serializable {
 
     private Metadata metadata;
 
+    public void addMessage(Message message) {
+        this.messages.add(message);
+    }
+
     // Inner class for Messages
     public static class Message implements Serializable {
         private static final long serialVersionUID = 1L;
         private String role;
         private String content;
         private Long timestamp;
+
+        public Message(String user, String inputText) {
+            this.role = user;
+            this.content = inputText;
+            this.timestamp = System.currentTimeMillis();
+        }
 
         // Getters and Setters
         public String getRole() {

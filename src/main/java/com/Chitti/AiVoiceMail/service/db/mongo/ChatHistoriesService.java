@@ -36,4 +36,8 @@ public class ChatHistoriesService {
         }
         chatHistoriesRepository.deleteById(id);
     }
+
+    public void addChatHistory(ChatHistories chatHistories) {
+        chatHistoriesRepository.save(chatHistories);
+    }
 }
