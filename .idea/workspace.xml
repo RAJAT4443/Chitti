@@ -5,38 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63665b0e-35da-4b84-a7e8-f997507e7ace" name="Changes" comment="added gitignore">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/AzureResponsePhrase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/AzureSpeechToTextRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/AzureSpeechToTextResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/ChittiVoiceMailApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/ChittiVoiceMailApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/config/CacheConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/config/CacheConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/entities/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/entities/ApplicationConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/entities/Summary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/entities/Summary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/entities/UserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/entities/UserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/AudioMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/AudioMetadata.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/ChatHistories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/ChatHistories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/UserCustomizations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/UserCustomizations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/repos/mysql/ApplicationConfigRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/repos/mysql/ApplicationConfigRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/AudioMetadataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/AudioMetadataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mysql/ApplicationConfigsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mysql/ApplicationConfigsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/stt/impl/AzureSpeechToTextService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/stt/impl/AzureSpeechToTextService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/ChittiVoiceMailApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/ChittiVoiceMailApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/controller/CallReceiverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/controller/CallReceiverController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/entities/ApplicationConfigs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/entities/Summary$Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/entities/Summary$Status.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/entities/Summary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/entities/Summary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/entities/UserDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/entities/UserDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata$ProcessingLog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Metadata.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Metadata.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/UserCustomizations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/UserCustomizations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/service/stt/impl/AzureSpeechToTextService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/service/stt/impl/AzureSpeechToTextService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,6 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,6 +38,11 @@
         <option name="mavenHome" value="Use Maven wrapper" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="17" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -77,27 +52,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/code-base&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/code-base",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -139,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1734108591717</updated>
       <workItem from="1734108594193" duration="4352000" />
-      <workItem from="1734112980735" duration="23138000" />
+      <workItem from="1734112980735" duration="23726000" />
     </task>
     <task id="LOCAL-00001" summary="added models and SpeechToTextService">
       <option name="closed" value="true" />
@@ -222,16 +200,6 @@
           <url>file://$USER_HOME$/AppData/Local/Temp/tmp_1_ChittiVoiceMailApplication.class</url>
           <line>10</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/stt/impl/AzureSpeechToTextService.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/stt/impl/AzureSpeechToTextService.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java</url>
