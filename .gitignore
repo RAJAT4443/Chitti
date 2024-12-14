@@ -1,0 +1,14 @@
+# Ignore IntelliJ IDEA project settings folder
+.idea/
+
+# Ignore IntelliJ IDEA specific files
+*.iml
+*.iws
+
+# Ignore build output folders
+out/
+target/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
