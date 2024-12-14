@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserCustomizationsRepository extends MongoRepository<UserCustomizations, String> {
+    UserCustomizations findUserCustomizationsByUserId(String userId);
 }

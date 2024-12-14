@@ -6,6 +6,8 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserDetailsService {
 
@@ -36,5 +38,10 @@ public class UserDetailsService {
             throw new IllegalArgumentException("User details not found for ID: " + id);
         }
         userDetailsRepository.deleteById(id);
+    }
+
+    public UserDetails getUserDetailsByPhone(String bParty) {
+        return Optional.of(userDetailsRepository.findUserDetailsByPhone(bParty))
+                .orElseThrow(() -> new IllegalArgumentException("User details not found for phone: " + bParty));
     }
 }

@@ -14,7 +14,9 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 @Slf4j
-public class TtsServiceImpl implements TtsService {
+public class AzureTtsServiceImpl implements TtsService {
+
+    private static final String TYPE = "azure";
 
     @Value("${speech.key}")
     private String apiKey;
@@ -60,6 +62,10 @@ public class TtsServiceImpl implements TtsService {
         return outputFilePath;
     }
 
+    @Override
+    public String getType() {
+        return TYPE.toLowerCase();
+    }
 
 
 }

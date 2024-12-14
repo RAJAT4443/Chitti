@@ -9,6 +9,7 @@ import com.Chitti.AiVoiceMail.service.stt.SpeechToTextService;
 import com.Chitti.AiVoiceMail.service.stt.SpeechToTextServiceFactory;
 import com.Chitti.AiVoiceMail.service.voiceMailAssistant.AssistantResponseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,7 +34,7 @@ public class CallReceiverController {
     private AssistantResponseService openAiAssistantResponseService;
 
     @PostMapping(consumes = {"multipart/form-data"})
-    public ResponseEntity<String> transcribeAudio(@RequestParam("audio") MultipartFile audioFile) {
+    public ResponseEntity<ByteArrayResource> transcribeAudio(@RequestParam("audio") MultipartFile audioFile) {
         try {
             if (!audioFile.isEmpty() && audioFile.getContentType().startsWith("audio/")) {
                 audioFile.getResource();

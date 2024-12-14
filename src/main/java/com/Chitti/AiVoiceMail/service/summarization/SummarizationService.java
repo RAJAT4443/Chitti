@@ -5,11 +5,10 @@ import java.io.IOException;
 public interface SummarizationService {
 
 
-    public String summarizeSession(String sessionId);
+    String summarizeSession(String sessionId);
 
-    public  String generateSummaryAndActionableInsights(String chatHistory)throws IOException;
+    String generateSummaryAndActionableInsights(String chatHistory) throws IOException;
 
-
-
+    String getType();
 
 }

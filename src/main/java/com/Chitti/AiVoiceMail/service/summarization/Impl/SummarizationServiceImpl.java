@@ -23,9 +23,9 @@ public class SummarizationServiceImpl implements SummarizationService {
 //    @Value("${openai.key}")
 //    private static String YOUR_OPENAI_API_KEY;
 
+    private static final String TYPE = "openAi";
 
-
-   private static final String OPENAI_API_KEY ="test";
+    private static final String OPENAI_API_KEY = "test_key";
     private final ChatHistoriesService chatHistoriesService;
 
 
@@ -43,9 +43,9 @@ public class SummarizationServiceImpl implements SummarizationService {
                 throw new IllegalArgumentException("No chat history found for sessionId: " + sessionId);
             }
 
-            StringBuilder str= new StringBuilder();
-            List<Message> strList=chatHistories.getMessages();
-            for(Message message:strList) {
+            StringBuilder str = new StringBuilder();
+            List<Message> strList = chatHistories.getMessages();
+            for (Message message : strList) {
                 str.append(message);
             }
             // Step 2: Generate summary and actionable insights
@@ -59,38 +59,34 @@ public class SummarizationServiceImpl implements SummarizationService {
 
 
     String userMessage = """
-    Please summarize the following chat session and provide actionable insights:
+                Please summarize the following chat session and provide actionable insights:
 
-    Chat History:
-    Hi, I’d like to discuss two things. First, I need to reschedule our call to Wednesday instead of Thursday. Second, I wanted to let you know that the client approved our budget proposal.
-    Sure, I’ll make a note of that. Is there anything else?
-    No, that’s it for now. Thanks!
+                Chat History:
+                Hi, I’d like to discuss two things. First, I need to reschedule our call to Wednesday instead of Thursday. Second, I wanted to let you know that the client approved our budget proposal.
+                Sure, I’ll make a note of that. Is there anything else?
+                No, that’s it for now. Thanks!
 
-    Your response must be in the following JSON format:
-    {
-      "category": "<One of: Scheduling, Personal Update, Business Inquiry, Other>",
-      "summary": "<Summarized actionable insights>"
-    }
-""";
-
-
+                Your response must be in the following JSON format:
+                {
+                  "category": "<One of: Scheduling, Personal Update, Business Inquiry, Other>",
+                  "summary": "<Summarized actionable insights>"
+                }
+            """;
 
 
     String systemMessage = """
-    You are a chat summarizer. Your role is to generate a concise and organized summary with actionable insights based on the provided chat history.
-    Respond in JSON format:
-    {
-      "category": "<One of: Scheduling, Personal Update, Business Inquiry, Other>",
-      "summary": "<Crisp,clear  and actionable summary of the chat>"
-    }
-    Guidelines:
-    - Focus on the key points of the chat and avoid unnecessary details.
-    - Categorize the chat accurately under the provided categories.
-    - Include essential details like dates, times, or specific actions, especially for scheduling-related messages.
-    - Summarize incomplete or vague inputs based on available information, and highlight any missing details.
-    """;
-
-
+            You are a chat summarizer. Your role is to generate a concise and organized summary with actionable insights based on the provided chat history.
+            Respond in JSON format:
+            {
+              "category": "<One of: Scheduling, Personal Update, Business Inquiry, Other>",
+              "summary": "<Crisp,clear  and actionable summary of the chat>"
+            }
+            Guidelines:
+            - Focus on the key points of the chat and avoid unnecessary details.
+            - Categorize the chat accurately under the provided categories.
+            - Include essential details like dates, times, or specific actions, especially for scheduling-related messages.
+            - Summarize incomplete or vague inputs based on available information, and highlight any missing details.
+            """;
 
 
     public String generateSummaryAndActionableInsights(String chatHistory) throws IOException {
@@ -136,6 +132,11 @@ public class SummarizationServiceImpl implements SummarizationService {
 
             return "Category: " + category + "\nSummary: " + summary;
         }
+    }
+
+    @Override
+    public String getType() {
+        return TYPE.toLowerCase();
     }
 
 

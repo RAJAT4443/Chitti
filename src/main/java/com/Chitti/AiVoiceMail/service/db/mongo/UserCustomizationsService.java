@@ -6,6 +6,8 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserCustomizationsService {
 
@@ -17,8 +19,7 @@ public class UserCustomizationsService {
 
     @Cacheable(value = "userCustomizations", key = "'user:' + #id")
     public UserCustomizations getUserCustomization(String id) {
-        return userCustomizationsRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("User customization not found for ID: " + id));
+        return userCustomizationsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("User customization not found for ID: " + id));
     }
 
     @CacheEvict(value = "userCustomizations", key = "'user:' + #userCustomizations.id")
@@ -36,5 +37,9 @@ public class UserCustomizationsService {
             throw new IllegalArgumentException("User customization not found for ID: " + id);
         }
         userCustomizationsRepository.deleteById(id);
+    }
+
+    public UserCustomizations getUserCustomizationsByUserId(String userId) {
+        return Optional.of(userCustomizationsRepository.findUserCustomizationsByUserId(userId)).orElseThrow(() -> new IllegalArgumentException("User customization not found for user ID: " + userId));
     }
 }

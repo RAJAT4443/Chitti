@@ -30,6 +30,7 @@ import java.util.stream.Collectors;
 @Primary
 public class OpenAiAssistantResponseService implements AssistantResponseService {
 
+    private static final String TYPE = "openAi";
     private final ApplicationConfigsService applicationConfigService;
 
     private final ChatHistoriesService chatHistoriesService;
@@ -82,6 +83,11 @@ public class OpenAiAssistantResponseService implements AssistantResponseService 
 
         // Process and return the assistant's response
         return cleanResponseText(responseDto.getFirstChoiceText());
+    }
+
+    @Override
+    public String getType() {
+        return TYPE.toLowerCase();
     }
 
     /**
