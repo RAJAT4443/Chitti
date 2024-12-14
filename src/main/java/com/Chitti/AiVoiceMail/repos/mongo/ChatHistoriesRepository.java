@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface ChatHistoriesRepository extends MongoRepository<ChatHistories, String> {
-    Optional<ChatHistories> findBySessionId(String sessionId);
+    Optional<ChatHistories> findChatHistoriesBySessionId(String sessionId);
 }

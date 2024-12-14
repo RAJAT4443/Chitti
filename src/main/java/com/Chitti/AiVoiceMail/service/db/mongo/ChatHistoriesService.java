@@ -17,7 +17,7 @@ public class ChatHistoriesService {
 
     @Cacheable(value = "chatHistory", key = "'session:' + #sessionId")
     public ChatHistories getChatHistoryBySessionId(String sessionId) {
-        return chatHistoriesRepository.findBySessionId(sessionId)
+        return chatHistoriesRepository.findChatHistoriesBySessionId(sessionId)
                 .orElseThrow(() -> new IllegalArgumentException("Chat history not found for sessionId: " + sessionId));
     }
     @CacheEvict(value = "chatHistory", key = "'session:' + #chatHistories.sessionId")

@@ -1,31 +1,34 @@
 package com.Chitti.AiVoiceMail.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Document(collection = "chat_histories")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ChatHistories implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     private String id;
-
+    @Field("session_id")
     private String sessionId;
 
     private String userId;
 
-    private LocalDateTime timestamp;
+
+    private Long timestamp;
 
     private List<Message> messages;
 
     private String summary;
 
-    private LocalDateTime lastUpdated;
+    private Long lastUpdated;
 
     private Metadata metadata;
 
@@ -34,7 +37,7 @@ public class ChatHistories implements Serializable {
         private static final long serialVersionUID = 1L;
         private String role;
         private String content;
-        private LocalDateTime timestamp;
+        private Long timestamp;
 
         // Getters and Setters
         public String getRole() {
@@ -53,11 +56,11 @@ public class ChatHistories implements Serializable {
             this.content = content;
         }
 
-        public LocalDateTime getTimestamp() {
+        public Long getTimestamp() {
             return timestamp;
         }
 
-        public void setTimestamp(LocalDateTime timestamp) {
+        public void setTimestamp(Long timestamp) {
             this.timestamp = timestamp;
         }
     }
@@ -110,11 +113,11 @@ public class ChatHistories implements Serializable {
         this.userId = userId;
     }
 
-    public LocalDateTime getTimestamp() {
+    public Long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(LocalDateTime timestamp) {
+    public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -134,11 +137,11 @@ public class ChatHistories implements Serializable {
         this.summary = summary;
     }
 
-    public LocalDateTime getLastUpdated() {
+    public Long getLastUpdated() {
         return lastUpdated;
     }
 
-    public void setLastUpdated(LocalDateTime lastUpdated) {
+    public void setLastUpdated(Long lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 

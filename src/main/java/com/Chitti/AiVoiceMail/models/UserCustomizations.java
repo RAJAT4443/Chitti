@@ -4,7 +4,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Document(collection = "user_customizations")
@@ -23,9 +22,9 @@ public class UserCustomizations implements Serializable {
 
     private String voicePreference;
 
-    private LocalDateTime createdAt;
+    private Long createdAt;
 
-    private LocalDateTime updatedAt;
+    private Long updatedAt;
 
     // Getters and Setters
     public String getId() {
@@ -76,19 +75,19 @@ public class UserCustomizations implements Serializable {
         this.voicePreference = voicePreference;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Long getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Long createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdatedAt() {
+    public Long getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(LocalDateTime updatedAt) {
+    public void setUpdatedAt(Long updatedAt) {
         this.updatedAt = updatedAt;
     }
 }

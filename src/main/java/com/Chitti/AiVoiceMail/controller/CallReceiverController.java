@@ -1,6 +1,7 @@
 package com.Chitti.AiVoiceMail.controller;
 
 import com.Chitti.AiVoiceMail.service.db.mongo.AudioMetadataService;
+import com.Chitti.AiVoiceMail.service.db.mongo.ChatHistoriesService;
 import com.Chitti.AiVoiceMail.service.db.mysql.UserDetailsService;
 import com.Chitti.AiVoiceMail.service.stt.SpeechToTextService;
 import com.Chitti.AiVoiceMail.service.stt.SpeechToTextServiceFactory;
@@ -22,6 +23,9 @@ public class CallReceiverController {
     @Autowired
     private SpeechToTextServiceFactory speechToTextServiceFactory;
 
+    @Autowired
+    private ChatHistoriesService chatHistoriesService;
+
     @PostMapping(consumes = {"multipart/form-data"})
     public ResponseEntity<String> transcribeAudio(@RequestParam("audio") MultipartFile audioFile) {
         try {
@@ -38,12 +42,11 @@ public class CallReceiverController {
         }
     }
 
-    @GetMapping("/test")
-    public void test() {
-
-        System.out.println(audioMetadataService.getAudioMetadata("audio1"));
-
-        System.out.println(userDetailsService.getUserDetailsById(1L));
+    @GetMapping("/test/{sessionId}")
+    public void test(@PathVariable String sessionId) {
+        System.out.println(chatHistoriesService.getChatHistoryBySessionId(sessionId));
+//        System.out.println(audioMetadataService.getAudioMetadata("audio1"));
+//        System.out.println(userDetailsService.getUserDetailsById(1L));
 
     }
 }

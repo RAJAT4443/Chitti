@@ -5,7 +5,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @Document(collection = "audio_metadata")
 public class AudioMetadata implements Serializable {
@@ -19,7 +18,7 @@ public class AudioMetadata implements Serializable {
     private int durationSeconds;
     private String fileFormat;
     private String transcriptionStatus;
-    private LocalDateTime createdAt;
+    private Long createdAt;
 
     public AudioMetadata() {
     }
