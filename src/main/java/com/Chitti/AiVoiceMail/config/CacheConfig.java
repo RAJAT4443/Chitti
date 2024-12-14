@@ -39,6 +39,8 @@ public class CacheConfig {
         // TTL for chatHistory: 5 minutes
         cacheConfigurations.put("chatHistory", defaultCacheConfig.entryTtl(Duration.ofMinutes(5)));
 
+        cacheConfigurations.put("userCustomizations", defaultCacheConfig.entryTtl(Duration.ofHours(1)));
+
         // Build RedisCacheManager with default and custom configurations
         return RedisCacheManager.builder(redisConnectionFactory)
                 .cacheDefaults(defaultCacheConfig) // Set the default cache configuration
