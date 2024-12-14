@@ -7,7 +7,8 @@ public interface SummarizationService {
 
     public String summarizeSession(String sessionId);
 
-    public String generateSummaryAndActionableInsights(String chatHistory)throws IOException;
+    public  String generateSummaryAndActionableInsights(String chatHistory)throws IOException;
+
 
 
 
