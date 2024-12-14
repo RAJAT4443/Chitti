@@ -1,6 +1,7 @@
 package com.Chitti.AiVoiceMail.service.summarization.Impl;
 
 import com.Chitti.AiVoiceMail.models.ChatHistories;
+import com.Chitti.AiVoiceMail.models.Message;
 import com.Chitti.AiVoiceMail.service.db.mongo.ChatHistoriesService;
 import com.Chitti.AiVoiceMail.service.summarization.SummarizationService;
 import okhttp3.*;
@@ -43,8 +44,8 @@ public class SummarizationServiceImpl implements SummarizationService {
             }
 
             StringBuilder str= new StringBuilder();
-            List<ChatHistories.Message> strList=chatHistories.getMessages();
-            for(ChatHistories.Message message:strList) {
+            List<Message> strList=chatHistories.getMessages();
+            for(Message message:strList) {
                 str.append(message);
             }
             // Step 2: Generate summary and actionable insights

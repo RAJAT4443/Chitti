@@ -19,83 +19,21 @@ public class ChatHistories implements Serializable {
     @Field("session_id")
     private String sessionId;
 
+    @Field("user_id")
     private String userId;
 
 
+    @Field("timestamp")
     private Long timestamp;
 
+    @Field("messages")
     private List<Message> messages;
 
-    private String summary;
-
+    @Field("last_updated")
     private Long lastUpdated;
-
-    private Metadata metadata;
 
     public void addMessage(Message message) {
         this.messages.add(message);
-    }
-
-    // Inner class for Messages
-    public static class Message implements Serializable {
-        private static final long serialVersionUID = 1L;
-        private String role;
-        private String content;
-        private Long timestamp;
-
-        public Message(String user, String inputText) {
-            this.role = user;
-            this.content = inputText;
-            this.timestamp = System.currentTimeMillis();
-        }
-
-        // Getters and Setters
-        public String getRole() {
-            return role;
-        }
-
-        public void setRole(String role) {
-            this.role = role;
-        }
-
-        public String getContent() {
-            return content;
-        }
-
-        public void setContent(String content) {
-            this.content = content;
-        }
-
-        public Long getTimestamp() {
-            return timestamp;
-        }
-
-        public void setTimestamp(Long timestamp) {
-            this.timestamp = timestamp;
-        }
-    }
-
-    // Inner class for Metadata
-    public static class Metadata {
-        private String source;
-        private String appVersion;
-
-        // Getters and Setters
-        public String getSource() {
-            return source;
-        }
-
-        public void setSource(String source) {
-            this.source = source;
-        }
-
-        public String getAppVersion() {
-            return appVersion;
-        }
-
-        public void setAppVersion(String appVersion) {
-            this.appVersion = appVersion;
-        }
     }
 
     // Getters and Setters
@@ -139,14 +77,6 @@ public class ChatHistories implements Serializable {
         this.messages = messages;
     }
 
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
     public Long getLastUpdated() {
         return lastUpdated;
     }
@@ -155,12 +85,5 @@ public class ChatHistories implements Serializable {
         this.lastUpdated = lastUpdated;
     }
 
-    public Metadata getMetadata() {
-        return metadata;
-    }
-
-    public void setMetadata(Metadata metadata) {
-        this.metadata = metadata;
-    }
 }
 

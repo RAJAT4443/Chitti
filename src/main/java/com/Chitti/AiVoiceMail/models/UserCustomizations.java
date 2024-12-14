@@ -2,6 +2,7 @@ package com.Chitti.AiVoiceMail.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,22 +10,37 @@ import java.util.List;
 @Document(collection = "user_customizations")
 public class UserCustomizations implements Serializable {
     private static final long serialVersionUID = 1L;
+
     @Id
+    @Field("_id") // Maps the MongoDB _id field
     private String id;
 
+    @Field("preferred_tone") // Maps to the preferred_tone field in MongoDB
     private String preferredTone;
 
+    @Field("categories") // Maps to the categories field in MongoDB
     private List<String> categories;
 
+    @Field("default_language") // Maps to the default_language field in MongoDB
     private String defaultLanguage;
 
-    private String greetings;
-
+    @Field("voice_preference") // Maps to the voice_preference field in MongoDB
     private String voicePreference;
 
+    @Field("created_at") // Maps to the created_at field in MongoDB
     private Long createdAt;
 
+    @Field("updated_at") // Maps to the updated_at field in MongoDB
     private Long updatedAt;
+
+    @Field("user_id") // Maps to the user_id field in MongoDB
+    private String userId;
+
+    @Field("assistant_name") // Maps to the assistant_name field in MongoDB
+    private String assistantName;
+
+    @Field("greeting") // Maps to the greeting field in MongoDB
+    private String greeting;
 
     // Getters and Setters
     public String getId() {
@@ -59,14 +75,6 @@ public class UserCustomizations implements Serializable {
         this.defaultLanguage = defaultLanguage;
     }
 
-    public String getGreetings() {
-        return greetings;
-    }
-
-    public void setGreetings(String greetings) {
-        this.greetings = greetings;
-    }
-
     public String getVoicePreference() {
         return voicePreference;
     }
@@ -89,6 +97,30 @@ public class UserCustomizations implements Serializable {
 
     public void setUpdatedAt(Long updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getAssistantName() {
+        return assistantName;
+    }
+
+    public void setAssistantName(String assistantName) {
+        this.assistantName = assistantName;
+    }
+
+    public String getGreeting() {
+        return greeting;
+    }
+
+    public void setGreeting(String greeting) {
+        this.greeting = greeting;
     }
 }
 

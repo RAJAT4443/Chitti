@@ -5,17 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63665b0e-35da-4b84-a7e8-f997507e7ace" name="Changes" comment="fixed sessionId and LocalDateTime isssue">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/OpenAiMessageDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/OpenAiRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/OpenAiResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/Configurations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/ChittiVoiceMailApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/ChittiVoiceMailApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/OpenAiMessageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/OpenAiMessageDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/OpenAiRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/OpenAiRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/OpenAiResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/OpenAiResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/ChatHistories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/ChatHistories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/ChatHistoriesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/ChatHistoriesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/UserCustomizations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/UserCustomizations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/summarization/Impl/SummarizationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/summarization/Impl/SummarizationServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/voiceMailAssistant/impl/OpenAiAssistantResponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/voiceMailAssistant/impl/OpenAiAssistantResponseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/utilities/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/utilities/Utilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Metadata.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Metadata.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/ChittiVoiceMailApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/ChittiVoiceMailApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/controller/CallReceiverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/controller/CallReceiverController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories$Metadata.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/ChatHistories.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/UserCustomizations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/UserCustomizations.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,12 +255,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java</url>
-          <line>34</line>
+          <line>40</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java</url>
-          <line>33</line>
+          <line>39</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

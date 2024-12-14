@@ -1,15 +1,18 @@
 package com.Chitti.AiVoiceMail.service.voiceMailAssistant.impl;
 
+import com.Chitti.AiVoiceMail.dtos.Configurations;
 import com.Chitti.AiVoiceMail.dtos.OpenAiMessageDto;
 import com.Chitti.AiVoiceMail.dtos.OpenAiRequestDto;
 import com.Chitti.AiVoiceMail.dtos.OpenAiResponseDto;
 import com.Chitti.AiVoiceMail.entities.UserDetails;
 import com.Chitti.AiVoiceMail.models.ChatHistories;
+import com.Chitti.AiVoiceMail.models.Message;
+import com.Chitti.AiVoiceMail.models.UserCustomizations;
 import com.Chitti.AiVoiceMail.service.db.mongo.ChatHistoriesService;
+import com.Chitti.AiVoiceMail.service.db.mongo.UserCustomizationsService;
 import com.Chitti.AiVoiceMail.service.db.mysql.ApplicationConfigsService;
 import com.Chitti.AiVoiceMail.service.voiceMailAssistant.AssistantResponseService;
 import com.Chitti.AiVoiceMail.utilities.Utilities;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -18,22 +21,29 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @Primary
 public class OpenAiAssistantResponseService implements AssistantResponseService {
-    @Autowired
-    private ApplicationConfigsService applicationConfigService;
 
-    @Autowired
-    private ChatHistoriesService chatHistoriesService;
+    private final ApplicationConfigsService applicationConfigService;
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private final ChatHistoriesService chatHistoriesService;
+
+    private final RestTemplate restTemplate;
+
+    private final UserCustomizationsService userCustomizationsService;
+
+    public OpenAiAssistantResponseService(ApplicationConfigsService applicationConfigService, ChatHistoriesService chatHistoriesService, RestTemplate restTemplate, UserCustomizationsService userCustomizationsService) {
+        this.applicationConfigService = applicationConfigService;
+        this.chatHistoriesService = chatHistoriesService;
+        this.restTemplate = restTemplate;
+        this.userCustomizationsService = userCustomizationsService;
+    }
 
     /**
      * Generates a response for the given input text by dynamically building the prompt
@@ -47,83 +57,110 @@ public class OpenAiAssistantResponseService implements AssistantResponseService 
      */
     @Override
     public String generateResponse(String inputText, ChatHistories chatHistories, UserDetails userDetails) throws Exception {
-        // 1. Fetch configurations dynamically
-        String openAiEndpoint = applicationConfigService.getConfigValue("openai.api.endpoint");
-        String promptTemplate = applicationConfigService.getConfigValue("openai.assistant.prompt");
-        String promptModel = applicationConfigService.getConfigValue("openai.prompt.model");
-        String secretKey = applicationConfigService.getConfigValue("openai.api.key");
-        int promptMaxTokens = Integer.parseInt(applicationConfigService.getConfigValue("openai.prompt.maxTokens"));
-        double promptTemperature = Double.parseDouble(applicationConfigService.getConfigValue("openai.prompt.temperature"));
-        String inputTextPromptTemplate = applicationConfigService.getConfigValue("openai.input.text.prompt");
+        // Fetch required configurations
+        Configurations config = fetchConfigurations();
 
+        // Fetch user customizations and merge placeholders
+        Map<String, String> placeholderValues = preparePlaceholderValues(inputText, chatHistories, userDetails);
 
-        // 2. Extract fields from objects and merge them into a single map
+        // Build and replace placeholders in the prompt
+        String finalPrompt = Utilities.replacePlaceholders(config.getPromptTemplate(), placeholderValues);
+        String finalInputTextPrompt = Utilities.replacePlaceholders(config.getInputTextPromptTemplate(), placeholderValues);
+
+        // Build the OpenAI request
+        OpenAiRequestDto requestDto = buildOpenAiRequest(chatHistories, finalPrompt, finalInputTextPrompt, config);
+
+        System.out.println("Request DTO: " + requestDto);
+
+        // Call OpenAI API and handle the response
+        OpenAiResponseDto responseDto = callOpenAiApi(config.getEndpoint(), config.getSecretKey(), requestDto);
+
+        System.out.println("Response DTO: " + responseDto);
+
+        // Update chat history asynchronously
+        asyncUpdateChatHistory(chatHistories, inputText, responseDto.getFirstChoiceText());
+
+        // Process and return the assistant's response
+        return cleanResponseText(responseDto.getFirstChoiceText());
+    }
+
+    /**
+     * Fetches configurations from the applicationConfigService.
+     */
+    private Configurations fetchConfigurations() {
+        return new Configurations(
+                applicationConfigService.getConfigValue("openai.api.endpoint"),
+                applicationConfigService.getConfigValue("openai.assistant.prompt"),
+                applicationConfigService.getConfigValue("openai.prompt.model"),
+                applicationConfigService.getConfigValue("openai.api.key"),
+                Integer.parseInt(applicationConfigService.getConfigValue("openai.prompt.default.maxTokens")),
+                Double.parseDouble(applicationConfigService.getConfigValue("openai.prompt.default.temperature")),
+                applicationConfigService.getConfigValue("openai.assistant.input.prompt")
+        );
+    }
+
+    /**
+     * Prepares placeholder values by extracting fields from input objects.
+     */
+    private Map<String, String> preparePlaceholderValues(String inputText, ChatHistories chatHistories, UserDetails userDetails) {
         Map<String, String> placeholderValues = new HashMap<>();
+        placeholderValues.put("max_message_length", String.valueOf(applicationConfigService.getConfigValue("openai.prompt.maxTokens")));
         placeholderValues.putAll(Utilities.extractFields(chatHistories));
         placeholderValues.putAll(Utilities.extractFields(userDetails));
 
-        // 3. Replace placeholders in the template
-        String finalPrompt = Utilities.replacePlaceholders(promptTemplate, placeholderValues);
-        String finalInputTextPrompt = Utilities.replacePlaceholders(inputTextPromptTemplate, placeholderValues);
+        UserCustomizations userCustomizations = userCustomizationsService.getUserCustomization(userDetails.getUserId());
+        placeholderValues.putAll(Utilities.extractFields(userCustomizations));
 
+        placeholderValues.put("inputText", inputText);
+        placeholderValues.put("isFirstInteraction", String.valueOf(chatHistories.getSessionId().isEmpty()));
+        return placeholderValues;
+    }
 
-        // 4. Build the API request
-
-        List<OpenAiMessageDto> openAiMessageDtos = new ArrayList<>(chatHistories.getMessages().stream()
-                .filter(message -> message.getRole().equals("user") || message.getRole().equals("assistant"))
+    /**
+     * Builds the OpenAI request DTO.
+     */
+    private OpenAiRequestDto buildOpenAiRequest(ChatHistories chatHistories, String systemPrompt, String userPrompt, Configurations config) {
+        List<OpenAiMessageDto> openAiMessageDtos = chatHistories.getMessages().stream()
+                .filter(message -> "user".equals(message.getRole()) || "assistant".equals(message.getRole()))
                 .map(message -> new OpenAiMessageDto(message.getRole(), message.getContent()))
-                .toList());
+                .collect(Collectors.toList());
 
-        openAiMessageDtos.add(new OpenAiMessageDto("system", finalPrompt));
-        openAiMessageDtos.add(new OpenAiMessageDto("user", finalInputTextPrompt));
+        openAiMessageDtos.add(new OpenAiMessageDto("system", systemPrompt));
+        openAiMessageDtos.add(new OpenAiMessageDto("user", userPrompt));
 
-        OpenAiRequestDto requestDto = new OpenAiRequestDto(
-                promptModel,
-                openAiMessageDtos,
-                promptMaxTokens,
-                promptTemperature
-        );
+        return new OpenAiRequestDto(config.getModel(), openAiMessageDtos, config.getMaxTokens(), config.getTemperature());
+    }
 
+    /**
+     * Makes the API call to OpenAI and handles the response.
+     */
+    private OpenAiResponseDto callOpenAiApi(String endpoint, String secretKey, OpenAiRequestDto requestDto) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setBearerAuth(secretKey);
 
         HttpEntity<OpenAiRequestDto> entity = new HttpEntity<>(requestDto, headers);
-
-        // 5. Make the API call and handle the response
-        OpenAiResponseDto responseDto;
         try {
-            responseDto = restTemplate.postForObject(
-                    openAiEndpoint,
-                    entity,
-                    OpenAiResponseDto.class
-            );
+            return restTemplate.postForObject(endpoint, entity, OpenAiResponseDto.class);
         } catch (Exception e) {
             throw new RuntimeException("Error during OpenAI API call: " + e.getMessage(), e);
         }
+    }
 
-        // 6. Write the latest chat to the chat history asynchronously
-        asyncUpdateChatHistory(chatHistories, inputText, responseDto.getFirstChoiceText());
-
-        // 7. Clean up the response text for text-to-speech
-        String processedResponse = responseDto.getFirstChoiceText().trim().replaceAll("\\s+", " ");
-
-        // 8. Return the cleaned-up response
-        return processedResponse;
-
+    /**
+     * Cleans the response text for further processing.
+     */
+    private String cleanResponseText(String responseText) {
+        return responseText.trim().replaceAll("\\s+", " ");
     }
 
     /**
      * Asynchronously updates the chat history with the user input and assistant response.
-     *
-     * @param chatHistories The chat history object.
-     * @param inputText The user input.
-     * @param assistantResponse The assistant's response.
      */
     @Async
     public void asyncUpdateChatHistory(ChatHistories chatHistories, String inputText, String assistantResponse) {
-        chatHistories.addMessage(new ChatHistories.Message("user", inputText));
-        chatHistories.addMessage(new ChatHistories.Message("assistant", assistantResponse));
+        chatHistories.addMessage(new Message("user", inputText));
+        chatHistories.addMessage(new Message("assistant", assistantResponse));
         chatHistoriesService.addChatHistory(chatHistories);
     }
 

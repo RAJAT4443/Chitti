@@ -1,10 +1,13 @@
 package com.Chitti.AiVoiceMail.controller;
 
+import com.Chitti.AiVoiceMail.entities.UserDetails;
+import com.Chitti.AiVoiceMail.models.ChatHistories;
 import com.Chitti.AiVoiceMail.service.db.mongo.AudioMetadataService;
 import com.Chitti.AiVoiceMail.service.db.mongo.ChatHistoriesService;
 import com.Chitti.AiVoiceMail.service.db.mysql.UserDetailsService;
 import com.Chitti.AiVoiceMail.service.stt.SpeechToTextService;
 import com.Chitti.AiVoiceMail.service.stt.SpeechToTextServiceFactory;
+import com.Chitti.AiVoiceMail.service.voiceMailAssistant.AssistantResponseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +29,9 @@ public class CallReceiverController {
     @Autowired
     private ChatHistoriesService chatHistoriesService;
 
+    @Autowired
+    private AssistantResponseService openAiAssistantResponseService;
+
     @PostMapping(consumes = {"multipart/form-data"})
     public ResponseEntity<String> transcribeAudio(@RequestParam("audio") MultipartFile audioFile) {
         try {
@@ -43,8 +49,11 @@ public class CallReceiverController {
     }
 
     @GetMapping("/test/{sessionId}")
-    public void test(@PathVariable String sessionId) {
-        System.out.println(chatHistoriesService.getChatHistoryBySessionId(sessionId));
+    public void test(@PathVariable String sessionId,
+                     @RequestParam(name = "inputText") String inputText) throws Exception {
+        ChatHistories chatHistories = chatHistoriesService.getChatHistoryBySessionId(sessionId);
+        UserDetails userDetails = userDetailsService.getUserDetailsById(1L);
+        System.out.println(openAiAssistantResponseService.generateResponse(inputText, chatHistories, userDetails));
 //        System.out.println(audioMetadataService.getAudioMetadata("audio1"));
 //        System.out.println(userDetailsService.getUserDetailsById(1L));
 

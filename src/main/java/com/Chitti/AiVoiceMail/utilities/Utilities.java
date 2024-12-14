@@ -64,6 +64,9 @@ public class Utilities {
     public static Map<String, String> extractFields(Object object) {
         Map<String, String> fieldMap = new HashMap<>();
         try {
+            if(object==null){
+                return fieldMap;
+            }
             Class<?> clazz = object.getClass();
             for (Field field : clazz.getDeclaredFields()) {
                 field.setAccessible(true);
@@ -85,6 +88,22 @@ public class Utilities {
             processedTemplate = processedTemplate.replace(placeholder, entry.getValue());
         }
         return processedTemplate;
+    }
+
+    /**
+     * Generates a unique session ID using the current timestamp and a random UUID.
+     *
+     * @return A unique session ID string.
+     */
+    public static String generateSessionId() {
+        // Get the current timestamp in milliseconds
+        long timestamp = System.currentTimeMillis();
+
+        // Generate a random UUID
+        String randomUUID = UUID.randomUUID().toString();
+
+        // Combine timestamp and UUID for uniqueness
+        return "session_" + timestamp + "_" + randomUUID;
     }
 
 }
