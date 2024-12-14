@@ -97,3 +97,41 @@
 //    }
 //
 //}
+
+package com.Chitti.AiVoiceMail.controller;
+
+import com.Chitti.AiVoiceMail.service.summarization.SummarizationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+;
+
+@RestController
+@RequestMapping("/api")
+public class SummarizationController {
+
+    @Autowired
+    private SummarizationService summarizationService;
+
+    public SummarizationController(SummarizationService summarizationService) {
+        this.summarizationService = summarizationService;
+    }
+
+    @GetMapping("/summarize/{sessionId}")
+    public ResponseEntity<String> summarizeSession(@PathVariable String sessionId) {
+        String result = summarizationService.summarizeSession(sessionId);
+
+        if (result.startsWith("No chat history found")) {
+            return ResponseEntity.status(404).body(result); // Return 404 if not found
+        }
+
+        return ResponseEntity.ok(result);
+    }
+}
+
+
+
