@@ -56,4 +56,13 @@ public class Message implements Serializable {
     public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "role:'" + role + '\'' +
+                ", content:'" + content + '\'' +
+                ", timestamp:" + timestamp +
+                '}';
+    }
 }

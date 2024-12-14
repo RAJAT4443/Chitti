@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -24,12 +25,12 @@ public class ChittiVoiceMailApplication {
     @Bean
     public RestTemplate getRestTemplate() {
         RestTemplate restTemplate = new RestTemplate(new HttpComponentsClientHttpRequestFactory());
-
         // Add necessary message converters for multipart support
         restTemplate.setMessageConverters(Arrays.asList(
                 new MappingJackson2HttpMessageConverter(), // Handles application/json
                 new FormHttpMessageConverter(), // Handles multipart/form-data
-                new StringHttpMessageConverter() // Handles plain text
+                new StringHttpMessageConverter(), // Handles plain text
+                new ByteArrayHttpMessageConverter() // Handles binary data
         ));
 
         return restTemplate;

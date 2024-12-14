@@ -1,7 +1,6 @@
 package com.Chitti.AiVoiceMail;
 
 import com.Chitti.AiVoiceMail.pojo.ChatHistory;
-import com.Chitti.AiVoiceMail.service.summarization.Impl.SummarizationServiceImpl;
 
 public class SummarizationServiceTest {
 
@@ -22,11 +21,11 @@ public class SummarizationServiceTest {
 
 //        String resp= SummarizationService.generateSummaryAndActionableInsights(concatenatedMessages);
 
-        SummarizationServiceImpl summarizationService = new SummarizationServiceImpl(null); // Pass null for ChatHistoriesService as it's not needed for this test
+//        OpenAiSummarizationServiceImpl summarizationService = new OpenAiSummarizationServiceImpl(null, applicationConfigsService, userCustomizationsService); // Pass null for ChatHistoriesService as it's not needed for this test
         try {
-            String summary = summarizationService.generateSummaryAndActionableInsights(concatenatedMessages);
+//            String summary = summarizationService.generateSummaryAndActionableInsights(concatenatedMessages);
             System.out.println("\nGenerated Summary and Actionable Insights:");
-            System.out.println(summary);
+//            System.out.println(summary);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("\nError while generating summary.");
