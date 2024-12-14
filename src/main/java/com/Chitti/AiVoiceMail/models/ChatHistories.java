@@ -3,11 +3,14 @@ package com.Chitti.AiVoiceMail.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Document(collection = "chat_histories")
-public class ChatHistories {
+public class ChatHistories implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     private String id;
@@ -27,7 +30,8 @@ public class ChatHistories {
     private Metadata metadata;
 
     // Inner class for Messages
-    public static class Message {
+    public static class Message implements Serializable {
+        private static final long serialVersionUID = 1L;
         private String role;
         private String content;
         private LocalDateTime timestamp;

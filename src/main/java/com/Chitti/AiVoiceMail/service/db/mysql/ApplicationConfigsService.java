@@ -34,6 +34,11 @@ public class ApplicationConfigsService {
         }
     }
 
+    public String getConfigValue(String key) {
+        ApplicationConfig config = applicationConfigsRepository.findByConfigKey(key);
+        return config != null ? config.getConfigValue() : null;
+    }
+
     @CacheEvict(value = "applicationConfigs", key = "'all'")
     public void deleteConfig(Long id) {
         if (!applicationConfigsRepository.existsById(id)) {

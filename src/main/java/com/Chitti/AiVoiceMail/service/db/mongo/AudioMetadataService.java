@@ -7,12 +7,13 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AudioMetadataService {
+public class AudioMetadataService{
     private final AudioMetadataRepository audioMetadataRepository;
 
     public AudioMetadataService(AudioMetadataRepository audioMetadataRepository) {
         this.audioMetadataRepository = audioMetadataRepository;
     }
+
     @Cacheable(value = "audioMetadata", key = "'audio:' + #id")
     public AudioMetadata getAudioMetadata(String id) {
         return audioMetadataRepository.findById(id)

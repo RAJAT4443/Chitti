@@ -3,12 +3,13 @@ package com.Chitti.AiVoiceMail.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Document(collection = "user_customizations")
-public class UserCustomizations {
-
+public class UserCustomizations implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     private String id;
 
