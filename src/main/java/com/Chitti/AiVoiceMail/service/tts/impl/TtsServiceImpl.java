@@ -1,6 +1,6 @@
-package com.Chitti.AiVoiceMail.service.impl;
+package com.Chitti.AiVoiceMail.service.tts.impl;
 
-import com.Chitti.AiVoiceMail.service.TtsService;
+import com.Chitti.AiVoiceMail.service.tts.TtsService;
 import com.Chitti.AiVoiceMail.utilities.Utilities;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

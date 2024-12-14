@@ -1,4 +1,4 @@
-package com.Chitti.AiVoiceMail.service;
+package com.Chitti.AiVoiceMail.service.tts;
 
 public interface TtsService {
 
