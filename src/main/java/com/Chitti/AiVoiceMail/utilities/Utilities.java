@@ -1,11 +1,14 @@
 package com.Chitti.AiVoiceMail.utilities;
 
+import com.Chitti.AiVoiceMail.entities.UserDetails;
+import com.Chitti.AiVoiceMail.requests.UserRegistrationData;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Optional;
+import java.util.UUID;
 
 @Slf4j
 public class Utilities {
@@ -33,4 +36,24 @@ public class Utilities {
         }
     }
 
+
+    public static UserDetails mapUserRegistrationDataToUserDetails(UserRegistrationData userRegistrationData) {
+
+        String randomString= UUID.randomUUID().toString();
+
+        UserDetails userDetails = new UserDetails();
+        userDetails.setEmail(userRegistrationData.getEmail());
+        userDetails.setUserId(randomString);
+        userDetails.setName(userRegistrationData.getUsername());
+        userDetails.setPhone(userRegistrationData.getPhoneNumber());
+        return userDetails;
+
+//        return UserDetails.builder()
+//                .userId(userRegistrationData.getUserId())
+//                .phone(userRegistrationData.getPhoneNumber())
+//                .email(userRegistrationData.getEmail())
+//                .name(userRegistrationData.getUsername()).build();
+
+
+    }
 }
