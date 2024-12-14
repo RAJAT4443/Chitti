@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63665b0e-35da-4b84-a7e8-f997507e7ace" name="Changes" comment="added repositories">
+    <list default="true" id="63665b0e-35da-4b84-a7e8-f997507e7ace" name="Changes" comment="added db services">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/config/CacheConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/repos/mysql/ApplicationConfigRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/repos/mysql/ApplicationConfigRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/repos/mysql/SummaryRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/repos/mysql/SummaryRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/repos/mysql/UserDetailsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/repos/mysql/UserDetailsRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/AudioMetadataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/AudioMetadataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/ChatHistoriesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/ChatHistoriesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/UserCustomizationsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/UserCustomizationsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mysql/ApplicationConfigsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mysql/ApplicationConfigsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mysql/SummaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mysql/SummaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mysql/UserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mysql/UserDetailsService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +112,7 @@
       <option name="presentableId" value="Default" />
       <updated>1734108591717</updated>
       <workItem from="1734108594193" duration="4352000" />
-      <workItem from="1734112980735" duration="3517000" />
+      <workItem from="1734112980735" duration="9534000" />
     </task>
     <task id="LOCAL-00001" summary="added models and SpeechToTextService">
       <option name="closed" value="true" />
@@ -125,7 +130,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734115633785</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added db services">
+      <option name="closed" value="true" />
+      <created>1734116513792</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734116513792</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added db services">
+      <option name="closed" value="true" />
+      <created>1734116541324</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734116541324</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,7 +167,8 @@
     <MESSAGE value="added models and SpeechToTextServicet" />
     <MESSAGE value="added models and SpeechToTextService" />
     <MESSAGE value="added repositories" />
-    <option name="LAST_COMMIT_MESSAGE" value="added repositories" />
+    <MESSAGE value="added db services" />
+    <option name="LAST_COMMIT_MESSAGE" value="added db services" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

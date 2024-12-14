@@ -2,6 +2,8 @@ package com.Chitti.AiVoiceMail.service.db.mysql;
 
 import com.Chitti.AiVoiceMail.entities.UserDetails;
 import com.Chitti.AiVoiceMail.repos.mysql.UserDetailsRepo;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,11 +15,13 @@ public class UserDetailsService {
         this.userDetailsRepository = userDetailsRepository;
     }
 
+    @Cacheable(value = "userDetails", key = "'userDetails:' + #id")
     public UserDetails getUserDetailsById(Long id) {
         return userDetailsRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("User details not found for ID: " + id));
     }
 
+    @CacheEvict(value = "userDetails", key = "'userDetails:' + #userDetails.id")
     public UserDetails saveUserDetails(UserDetails userDetails) {
         try {
             return userDetailsRepository.save(userDetails);
@@ -26,6 +30,7 @@ public class UserDetailsService {
         }
     }
 
+    @CacheEvict(value = "userDetails", key = "'userDetails:' + #id")
     public void deleteUserDetails(Long id) {
         if (!userDetailsRepository.existsById(id)) {
             throw new IllegalArgumentException("User details not found for ID: " + id);
