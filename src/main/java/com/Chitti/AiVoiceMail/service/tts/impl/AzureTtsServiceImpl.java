@@ -8,7 +8,6 @@ import com.Chitti.AiVoiceMail.service.tts.TtsService;
 import com.Chitti.AiVoiceMail.utilities.Utilities;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -21,22 +20,6 @@ import java.util.concurrent.CompletableFuture;
 public class AzureTtsServiceImpl implements TtsService {
 
     private static final String TYPE = "azure";
-
-    @Value("${speech.key}")
-    private String apiKey;
-
-    @Value("${speech.region}")
-    private String region;
-
-    @Value("${local.file.path}")
-    private String localFilePath;
-
-    @Value("${voice.name}")
-    private String voiceName;
-
-    @Value("${azure.endpoint}")
-    private String azureEndpoint;
-
     @Autowired
     private RestTemplate restTemplate;
 
@@ -136,6 +119,7 @@ public class AzureTtsServiceImpl implements TtsService {
                 voiceName, text
         );
     }
+
     /**
      * Maps the Azure TTS output format to a file extension.
      *
@@ -148,7 +132,6 @@ public class AzureTtsServiceImpl implements TtsService {
         }
         return ".mp3"; // Default to .mp3 for other formats
     }
-
 
 
     private String prepareOutputFilePath(String baseFilePath, String fileName) throws Exception {
