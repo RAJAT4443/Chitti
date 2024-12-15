@@ -19,7 +19,7 @@ public class TtsController {
     @PostMapping("/generatePrompt")
     public ResponseEntity<String> generatePrompt() {
         try {
-            ttsService.convertTextToSpeechViaApi("hello", "test");
+//            ttsService.convertTextToSpeechViaApi("hello", "test", userDetails.getUserId(), chatHistories.getSessionId());
         }catch(Exception e) {
             e.printStackTrace();
 //            log.error("Error while generating prompts ",e);

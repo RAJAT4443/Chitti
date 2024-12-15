@@ -1,5 +1,6 @@
 package com.Chitti.AiVoiceMail.service.voiceMailAssistant.impl;
 
+import com.Chitti.AiVoiceMail.dtos.AudioResponseDto;
 import com.Chitti.AiVoiceMail.dtos.VoiceMailAssistantRequestDto;
 import com.Chitti.AiVoiceMail.entities.UserDetails;
 import com.Chitti.AiVoiceMail.models.ChatHistories;
@@ -24,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 @Primary
@@ -57,7 +59,7 @@ public class VoiceMailAssistantImpl implements VoiceMailAssistant {
     }
 
     @Override
-    public String processVoiceMail(MultipartFile audioFile, VoiceMailAssistantRequestDto voiceMailAssistantRequestDto) throws Exception {
+    public CompletableFuture<AudioResponseDto> processVoiceMail(MultipartFile audioFile, VoiceMailAssistantRequestDto voiceMailAssistantRequestDto) throws Exception {
 
         try {
             String ttsServiceName = applicationConfigsService.getConfigValue("tts.service.name");
@@ -81,11 +83,11 @@ public class VoiceMailAssistantImpl implements VoiceMailAssistant {
 
             String aiResponse = assistantResponseService.generateResponse(callerText, chatHistories, userDetails);
 
-            ttsService.convertTextToSpeechViaApi(aiResponse, generateFileName(chatHistories.getSessionId(), chatHistories.getMessages().size()));
+            CompletableFuture<AudioResponseDto> ttsResponse = ttsService.convertTextToSpeechViaApi(aiResponse, generateFileName(chatHistories.getSessionId(), chatHistories.getMessages().size()), userDetails.getUserId(), chatHistories.getSessionId());
 
-            String summaryResponse = summarizationService.generateSummaryAndActionableInsights(chatHistories, userDetails);
+//            String summaryResponse = summarizationService.generateSummaryAndActionableInsights(chatHistories, userDetails);
 
-            return summaryResponse;
+            return ttsResponse;
 
         } catch (Exception e) {
             e.printStackTrace();

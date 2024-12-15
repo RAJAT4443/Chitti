@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63665b0e-35da-4b84-a7e8-f997507e7ace" name="Changes" comment="fixed sessionId and LocalDateTime isssue">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/AudioResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/ChittiVoiceMailApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/ChittiVoiceMailApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/VoiceMailAssistantRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/dtos/VoiceMailAssistantRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/summarization/Impl/SummarizationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/summarization/Impl/OpenAiSummarizationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/summarization/SummarizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/summarization/SummarizationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/TtsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/TtsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/AudioMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/models/AudioMetadata.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/AudioMetadataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mongo/AudioMetadataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/tts/TtsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/tts/TtsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/tts/impl/AzureTtsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/tts/impl/AzureTtsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/voiceMailAssistant/VoiceMailAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/voiceMailAssistant/VoiceMailAssistant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/voiceMailAssistant/impl/VoiceMailAssistantImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/voiceMailAssistant/impl/VoiceMailAssistantImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/Chitti/AiVoiceMail/SummarizationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/Chitti/AiVoiceMail/SummarizationServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/utilities/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/utilities/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/controller/CallReceiverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/controller/CallReceiverController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Chitti/AiVoiceMail/models/AudioMetadata.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,14 +250,14 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/db/mysql/ApplicationConfigsService.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/service/summarization/Impl/OpenAiSummarizationServiceImpl.java</url>
           <line>39</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/Chitti/AiVoiceMail/controller/CallReceiverController.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -4,10 +4,13 @@ import com.Chitti.AiVoiceMail.models.AudioMetadata;
 import com.Chitti.AiVoiceMail.repos.mongo.AudioMetadataRepository;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.CompletableFuture;
+
 @Service
-public class AudioMetadataService{
+public class AudioMetadataService {
     private final AudioMetadataRepository audioMetadataRepository;
 
     public AudioMetadataService(AudioMetadataRepository audioMetadataRepository) {
@@ -35,5 +38,11 @@ public class AudioMetadataService{
             throw new IllegalArgumentException("Audio metadata not found for ID: " + id);
         }
         audioMetadataRepository.deleteById(id);
+    }
+
+    @Async
+    public CompletableFuture<AudioMetadata> addAudioMetadataAsync(AudioMetadata audioMetadata) {
+        System.out.println("saving audioMetadata : " + audioMetadata);
+        return CompletableFuture.supplyAsync(() -> audioMetadataRepository.save(audioMetadata));
     }
 }

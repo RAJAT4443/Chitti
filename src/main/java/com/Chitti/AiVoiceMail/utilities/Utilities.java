@@ -17,9 +17,24 @@ import java.lang.reflect.Field;
 public class Utilities {
 
     public static String getOutputFilePath(String localFilePath, String fileName) {
+        System.out.println("User home: " + System.getProperty("user.home"));
         return System.getProperty("user.home") + localFilePath + fileName + ".wav";
     }
 
+
+    /**
+     * Estimates the duration of the audio file based on its size and format.
+     *
+     * @param sizeInBytes The size of the audio file in bytes.
+     * @param format      The audio format.
+     * @return The estimated duration in seconds.
+     */
+    public static int estimateDuration(long sizeInBytes, String format) {
+        if (format.toLowerCase().contains("16khz")) {
+            return (int) (sizeInBytes / 32000); // Approximation
+        }
+        return 0; // Default or unsupported format
+    }
 
     public static void ensureDirectoryExists(String path) {
         File directory = new File(path);
